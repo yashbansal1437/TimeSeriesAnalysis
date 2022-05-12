@@ -13,7 +13,7 @@ st.sidebar.subheader("Parameters")
 start_date=st.sidebar.date_input("Start date", datetime.date(2010, 1, 1))
 end_date=st.sidebar.date_input("End date", datetime.date(2021, 2, 28))
 
-ticker_list=pd.read_csv("D:\\Problems\\Pravesh\\constituents_symbols.txt")
+ticker_list=pd.read_csv("constituents_symbols.txt")
 tickerSymbol=st.sidebar.selectbox('Stock ticker', ticker_list)
 tickerData=yf.Ticker(tickerSymbol)
 tickerDf=tickerData.history(period='1d', start=start_date, end=end_date)
