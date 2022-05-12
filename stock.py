@@ -16,11 +16,9 @@ end_date=st.sidebar.date_input("End date", datetime.date(2021, 2, 28))
 ticker_list=pd.read_csv("constituents_symbols.txt")
 tickerSymbol=st.sidebar.selectbox('Stock ticker', ticker_list)
 
-timeframelist = ['1m','5m','15m','30m','1h']
 
-tickerTimeframe = st.sidebar.selectbox('Time Frame',timeframelist)
 tickerData=yf.Ticker(tickerSymbol)
-tickerDf=tickerData.history(period=tickerTimeFrame, start=start_date, end=end_date)
+tickerDf=tickerData.history(period='1d', start=start_date, end=end_date)
 
 string_logo='<img src=%s>' % tickerData.info['logo_url']
 st.markdown(string_logo, unsafe_allow_html=True)
