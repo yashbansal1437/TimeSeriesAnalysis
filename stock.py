@@ -34,6 +34,6 @@ st.write(tickerDf)
 
 st.header("**Bands**")
 qf=cf.QuantFig(tickerDf, title='Chart', legend='top', name='GS')
-# qf.add_bollinger_bands()
+qf.add_bollinger_bands()
 fig=qf.iplot(asFigure=True)
 st.plotly_chart(fig)
